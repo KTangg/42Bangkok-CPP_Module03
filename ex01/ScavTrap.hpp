@@ -20,6 +20,7 @@ class ScavTrap : public ClapTrap
 		ScavTrap	&operator=(const ScavTrap &rhs);
 
 		// Function member part
+		void	attack(const std::string &target);
 		void	guardGate();
 	private:
 };

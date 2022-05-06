@@ -35,12 +35,12 @@ class ClapTrap
 		void		setHp(int hp);
 		void		setEp(int ep);
 		void		setAd(int ad);
-
-	private:
-		std::string	_name;
 		int			_hp;
 		int			_ep;
 		int			_ad;
+
+	private:
+		std::string	_name;
 };
 
 #endif // **************************************************** __CLAPTRAP_HPP__ //

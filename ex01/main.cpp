@@ -6,7 +6,7 @@
 /*   By: spoolpra <spoolpra@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 14:34:04 by spoolpra          #+#    #+#             */
-/*   Updated: 2022/05/06 15:45:57 by spoolpra         ###   ########.fr       */
+/*   Updated: 2022/05/06 17:44:12 by spoolpra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@
 
 int	main(void) {
 	int			action;
-	ClapTrap	armel("Armel");
-	ScavTrap	vlad("Vlad");
+	ScavTrap	armel("Armel");
+	ScavTrap	vlad(armel);
 
+	vlad.setName("Vlad");
 	srand(time(NULL));
 
 	for (int i = 1; i < 21; i++) {
@@ -39,7 +40,7 @@ int	main(void) {
 				vlad.takeDamage(armel.getAd());
 				break ;
 			case 2:
-				armel.beRepaired(rand() % 5);
+				armel.beRepaired(rand() % 30);
 				break ;
 		}
 		std::cout << std::endl;
@@ -54,17 +55,9 @@ int	main(void) {
 				armel.takeDamage(vlad.getAd());
 				break ;
 			case 2:
-				vlad.beRepaired(rand() % 5);
+				vlad.beRepaired(rand() % 30);
 				break ;
 		}
 		std::cout << std::endl;
 	}
-	std::cout << std::endl;
-	ScavTrap vladClone(vlad);
-	vladClone.setName("Vlad Clone");
-	vladClone.attack(vlad.getName());
-	vlad.takeDamage(vladClone.getAd());
-	vladClone.beRepaired(42);
-	vladClone.guardGate();
-	std::cout << std::endl;
 }

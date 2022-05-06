@@ -1,13 +1,13 @@
 #include "ClapTrap.hpp"
 
 // Default Class Constructor
-ClapTrap::ClapTrap(void) : _name("Default ClapTrap"), _hp(10), _ep(10), _ad(0)
+ClapTrap::ClapTrap(void) : _hp(10), _ep(10), _ad(0), _name("Default")
 {
 	std::cout << "Default Constructor Called: ClapTrap(" << _name << ") created" << std::endl;
 }
 
 // String Class Constructor
-ClapTrap::ClapTrap(std::string str) : _name(str), _hp(10), _ep(10), _ad(0)
+ClapTrap::ClapTrap(std::string str) : _hp(10), _ep(10), _ad(0), _name(str)
 {
 	std::cout << "String Constructor Called: ClapTrap(" << _name << ") created" << std::endl;
 }

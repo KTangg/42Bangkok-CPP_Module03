@@ -1,22 +1,20 @@
 #include "ScavTrap.hpp"
 
 // Default Class Constructor
-ScavTrap::ScavTrap(void)
+ScavTrap::ScavTrap(void) : ClapTrap()
 {
-	setName("Default ScavTrap");
-	setHp(100);
-	setEp(50);
-	setAd(20);
+	_hp = 100;
+	_ep = 100;
+	_ad = 30;
 	std::cout << "Default Constructor Called: ScavTrap(" << getName() << ") created" << std::endl;
 }
 
 // String Class Constructor
-ScavTrap::ScavTrap(std::string name)
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
-	setName(name);
-	setHp(100);
-	setEp(50);
-	setAd(20);
+	_hp = 100;
+	_ep = 100;
+	_ad = 30;
 	std::cout << "String Constructor Called: ScavTrap(" << getName() << ") created" << std::endl;
 }
 
@@ -38,10 +36,22 @@ ScavTrap	&ScavTrap::operator=(const ScavTrap &rhs)
 {
 	// Make your Assignment here
 	setName(rhs.getName());
-	setHp(rhs.getHp());
-	setEp(rhs.getEp());
-	setAd(rhs.getAd());
+	_hp = rhs.getHp();
+	_ep = rhs.getEp();
+	_ad = rhs.getAd();
 	return (*this);
+}
+
+void	ScavTrap::attack(const std::string &target)
+{
+	if (_ep < 1)
+	{
+		std::cout << "ScavTrap " << getName() << " doesn't has enough energy!" << std::endl;
+		return ;
+	}
+	_ep--;
+	std::cout << "ScavTrap " << getName() << " attacks " << target << ", causing " << _ad << " points of damage!" << std::endl;
+	std::cout << "ScavTrap " << getName() << " has " << _ep << " EP remain." << std::endl;
 }
 
 void	ScavTrap::guardGate(void)
