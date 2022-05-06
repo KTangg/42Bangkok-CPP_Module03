@@ -29,6 +29,9 @@ class ClapTrap
 		int			getEp(void) const;
 		int			getAd(void) const;
 		void		setName(std::string str);
+
+	protected:
+		// Set Attributes for derived Instance
 		void		setHp(int hp);
 		void		setEp(int ep);
 		void		setAd(int ad);
